@@ -7,6 +7,7 @@ import mfa.codecurve.interviewquestion.lazy.LazyLoader;
 import mfa.codecurve.interviewquestion.propertSources.PropertySources;
 import mfa.codecurve.interviewquestion.scope.PrototypeBean;
 import mfa.codecurve.interviewquestion.scope.SingletonBean;
+import mfa.codecurve.interviewquestion.service.EmailService;
 import mfa.codecurve.interviewquestion.values.ValuedAnnotation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -57,9 +58,13 @@ public class SbInterviewQuestionApplication {
 //        System.out.println(propertySources.getPassword());
 //        System.out.println(propertySources.getHost());
 
-        System.out.println("---------------@ConfigurationProperties----------------------------------------");
-        AppPropertiesDemo appPropertiesDemo = context.getBean(AppPropertiesDemo.class);
-        appPropertiesDemo.displayInfo();
+//        System.out.println("---------------@ConfigurationProperties----------------------------------------");
+//        AppPropertiesDemo appPropertiesDemo = context.getBean(AppPropertiesDemo.class);
+//        appPropertiesDemo.displayInfo();
+
+        System.out.println("---------------sending Email client------------------------------------");
+      EmailService emailService=  context.getBean(EmailService.class);
+        emailService.sendEmail();
 
     }
 
